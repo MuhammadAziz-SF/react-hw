@@ -23,10 +23,10 @@ const categories: string[] = [
 
 const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
+    <header className="sticky top-0 z-[1000] w-full bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
       <div className="max-w-7xl mx-auto px-4">
         <div className="h-16 flex items-center gap-4 sm:gap-6">
-          <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="Uzum Market home">
+          <Link to="/" className="flex items-center gap-2 shrink-0 cursor-pointer" aria-label="Uzum Market home">
             <span className="relative inline-flex items-center justify-center w-8 h-8 rounded-full bg-yellow-300 text-purple-700 font-extrabold text-lg select-none">U</span>
             <span className="text-2xl font-semibold text-purple-700 tracking-tight">uzum <span className="text-gray-900">market</span></span>
           </Link>

@@ -6,7 +6,6 @@ import { toggleWishlist } from '../lib/features/wishlistSlice'
 import type { RootState } from '../lib'
 import { IoMdHeartEmpty } from 'react-icons/io'
 import { IoIosHeart } from 'react-icons/io'
-import { useNavigate } from 'react-router-dom'
 
 interface Props {
   product: IProduct
@@ -15,7 +14,6 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch()
-  const navigate = useNavigate()
   const isWished = useSelector((state: RootState) => state.wishlist.ids.includes(product.id))
 
   const monthly = Math.round((product.price * 1.3) / 12) * 100
@@ -72,7 +70,6 @@ const ProductCard: React.FC<Props> = ({ product }) => {
           className="mt-3 w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg py-2"
           onClick={() => {
             dispatch(addToCart(product))
-            navigate('/cart')
           }}
         >
           В корзину
