@@ -12,9 +12,7 @@ interface Props {
   product: IProduct
 }
 
-const formatPrice = (value: number): string => {
-  return new Intl.NumberFormat('ru-RU').format(value)
-}
+
 
 const ProductCard: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch()
@@ -54,12 +52,12 @@ const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
 
         <div className="mt-2">
-          <div className="text-purple-700 font-bold text-xl leading-none">{formatPrice(product.price)}</div>
-          <div className="text-gray-500 text-sm line-through">{formatPrice(Math.round(product.price * 1.05))}</div>
+          <div className="text-purple-700 font-bold text-xl leading-none">{product.price}</div>
+          <div className="text-gray-500 text-sm line-through">{Math.round(product.price * 1.05)}</div>
         </div>
 
         <div className="mt-2 inline-block bg-yellow-300 text-black text-xs font-semibold px-2 py-0.5 rounded">
-          {formatPrice(monthly)} сум/мес
+          {monthly} сум/мес
         </div>
 
         <div className="mt-2 text-sm text-gray-800 line-clamp-2 min-h-10">
