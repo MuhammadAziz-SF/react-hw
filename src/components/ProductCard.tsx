@@ -13,13 +13,12 @@ interface Props {
 }
 
 
-
 const ProductCard: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const isWished = useSelector((state: RootState) => state.wishlist.ids.includes(product.id))
 
-  const monthly = Math.round((product.price) / 12) * 100 // man yozdim | can paste coefficient to calculate monthly price
+  const monthly = Math.round((product.price * 1.3) / 12) * 100
 
   return (
     <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden border">
@@ -33,7 +32,7 @@ const ProductCard: React.FC<Props> = ({ product }) => {
 
         <button
           type="button"
-          aria-label={isWished ? 'Убрать из избранного' : 'В избранное'}
+          aria-label={isWished ? 'Remove from wishlist' : 'Add to wishlist'}
           className="absolute top-3 right-3 p-2 rounded-full bg-white/90 hover:bg-white shadow"
           onClick={() => dispatch(toggleWishlist(product))}
         >
